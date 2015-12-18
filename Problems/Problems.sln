@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DE85FB9A-D36C-4781-97F2-76EC6924CF45}"
 	ProjectSection(SolutionItems) = preProject
 		1.txt.decrypted = 1.txt.decrypted
+		10.pl.decrypted = 10.pl.decrypted
+		11.pl.decrypted = 11.pl.decrypted
+		12.pl.decrypted = 12.pl.decrypted
 		2.pl.decrypted = 2.pl.decrypted
 		3.pl.decrypted = 3.pl.decrypted
 		4.pl.decrypted = 4.pl.decrypted
@@ -13,6 +16,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		6.pl.decrypted = 6.pl.decrypted
 		7.pl.decrypted = 7.pl.decrypted
 		8.pl.decrypted = 8.pl.decrypted
+		9.pl.decrypted = 9.pl.decrypted
 	EndProjectSection
 EndProject
 Global
