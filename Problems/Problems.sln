@@ -6,6 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DE85FB9A-D36C-4781-97F2-76EC6924CF45}"
 	ProjectSection(SolutionItems) = preProject
 		1.txt.decrypted = 1.txt.decrypted
+		2.pl.decrypted = 2.pl.decrypted
 	EndProjectSection
 EndProject
 Global
