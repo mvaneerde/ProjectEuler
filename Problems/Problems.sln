@@ -7,6 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		1.txt.decrypted = 1.txt.decrypted
 		10.pl.decrypted = 10.pl.decrypted
+		100.pl.decrypted = 100.pl.decrypted
 		11.pl.decrypted = 11.pl.decrypted
 		12.pl.decrypted = 12.pl.decrypted
 		13.pl.decrypted = 13.pl.decrypted
@@ -110,6 +111,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		9.pl.decrypted = 9.pl.decrypted
 		90-v1.pl.decrypted = 90-v1.pl.decrypted
 		90.pl.decrypted = 90.pl.decrypted
+		91.pl.decrypted = 91.pl.decrypted
+		92.pl.decrypted = 92.pl.decrypted
+		93.pl.decrypted = 93.pl.decrypted
+		94.pl.decrypted = 94.pl.decrypted
+		95.pl.decrypted = 95.pl.decrypted
+		96-v1.pl.decrypted = 96-v1.pl.decrypted
+		96.pl.decrypted = 96.pl.decrypted
+		97.pl.decrypted = 97.pl.decrypted
+		98.pl.decrypted = 98.pl.decrypted
+		99.pl.decrypted = 99.pl.decrypted
 	EndProjectSection
 EndProject
 Global
