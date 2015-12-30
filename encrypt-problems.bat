@@ -1,7 +1,7 @@
 @echo off
 setlocal
 
-for /f "usebackq delims=" %%f in (`dir /s /b %~dp0..\problems\*.decrypted`) do (
+for /f "usebackq delims=" %%f in (`dir /s /b %~dp0problems\*.decrypted`) do (
 	call :ENCRYPT %%f
 )
 
@@ -16,6 +16,6 @@ if exist "%encrypted%" (
 	goto END
 )
 
-call %~dp0encrypt-file.bat %decrypted%
+call %~dp0Encryption\encrypt-file.bat %decrypted%
 
 :END

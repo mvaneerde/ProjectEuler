@@ -8,7 +8,7 @@ set kit_lib=%programfiles(x86)%\Windows Kits\10\Lib\10.0.10586.0
 set INCLUDE=%visual_cplusplus%\include
 set INCLUDE=%INCLUDE%;%kit_inc%\um
 set INCLUDE=%INCLUDE%;%kit_inc%\ucrt
-set INCLUDE=%INCLUDE%;%~dp0..\Library
+set INCLUDE=%INCLUDE%;%~dp0Library
 
 set LIB=%visual_cplusplus%\lib
 set LIB=%LIB%;%kit_lib%\um\x86

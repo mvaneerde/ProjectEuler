@@ -1,13 +1,13 @@
 @echo off
 setlocal
 
-if not exist "%~dp0..\.password" (
+if not exist "%~dp0.password" (
 	echo Could not find password file
 	goto END
 )
 
 set key=
-for /f "usebackq delims=" %%k in (`type %~dp0..\.password`) do (
+for /f "usebackq delims=" %%k in (`type %~dp0.password`) do (
 	if not "%%k" == "" set key=%%k
 )
 
@@ -16,7 +16,7 @@ if "%key%"=="" (
 	goto END
 )
 
-for /f "usebackq delims=" %%f in (`dir /s /b %~dp0..\problems\*.encrypted`) do (
+for /f "usebackq delims=" %%f in (`dir /s /b %~dp0problems\*.encrypted`) do (
 	call :DECRYPT %%f
 )
 
@@ -32,6 +32,6 @@ if exist "%decrypted%" (
 )
 
 echo Decrypting %encrypted%...
-call perl.exe -w %~dp0decrypt.pl "%key%" < %encrypted% > %decrypted%
+call perl.exe -w %~dp0Encryption\decrypt.pl "%key%" < %encrypted% > %decrypted%
 
 :END
