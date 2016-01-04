@@ -14,6 +14,8 @@ set LIB=%visual_cplusplus%\lib
 set LIB=%LIB%;%kit_lib%\um\x86
 set LIB=%LIB%;%kit_lib%\ucrt\x86
 
+rem /TP means treat the files being compiled as C++
+rem rather than inferring the type from the extension
 call "%visual_cplusplus%\bin\cl.exe" ^
 	/nologo ^
 	/TP ^
