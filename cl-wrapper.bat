@@ -16,7 +16,10 @@ set LIB=%LIB%;%kit_lib%\ucrt\x86
 
 rem /TP means treat the files being compiled as C++
 rem rather than inferring the type from the extension
+rem
+rem /EHsc allows using things like std::vector
 call "%visual_cplusplus%\bin\cl.exe" ^
+	/EHsc ^
 	/nologo ^
 	/TP ^
 	%*
