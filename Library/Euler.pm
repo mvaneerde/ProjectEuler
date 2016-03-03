@@ -12,6 +12,7 @@ BEGIN {
 		&irreducible_pythagorean_triples
 		&fibonacci
 		&find_primes_below
+		&mobius
 		&modadd
 		&modinv
 		&modpow
@@ -234,6 +235,45 @@ sub modpow($$$) {
 
 	# print "$p\n";
 	return $p;
+}
+
+# calculate the Mobius function up to a given max
+sub mobius($) {
+	my ($m_max) = @_;
+	my @mobius = (); $mobius[$m_max] = 2; $mobius[1] = 1;
+
+	# initialize all to 2 (except 1, which is 1 by convention)
+	for (my $i = 2; $i <= $m_max; $i++) {
+		$mobius[$i] = 2;
+	}
+
+	# if this is the first time we've seen the number, it's prime
+	for (my $i = 2; $i <= $m_max; $i++) {
+		next unless $mobius[$i] == 2;
+
+		# first multiple of the prime is prime
+		$mobius[$i] = -1;
+
+		# multiples of the prime's square are squareful
+		my $i2 = $i * $i;
+		for (my $ki2 = $i2; $ki2 <= $m_max; $ki2 += $i2) {
+			# print "$ki2 is a multiple of $i^2\n";
+			$mobius[$ki2] = 0;
+		}
+
+		# multiples of the prime have another prime factor
+		for (my $ki = 2 * $i; $ki <= $m_max; $ki += $i) {
+			# print "$ki is a multiple of $i\n";
+
+			if ($mobius[$ki] == 2) {
+				$mobius[$ki] = -1;
+			} else {
+				$mobius[$ki] *= -1;
+			}
+		}
+	}
+
+	return @mobius;
 }
 
 # calculates a + b mod m
