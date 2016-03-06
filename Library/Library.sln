@@ -11,6 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		mobius.h = mobius.h
 		modpow.h = modpow.h
 		sieve.h = sieve.h
+		square-root.h = square-root.h
 	EndProjectSection
 EndProject
 Global
