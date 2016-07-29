@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DE85FB9A-D36C-4781-97F2-76EC6924CF45}"
 EndProject
@@ -422,6 +422,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "500-599", "500-599", "{D190
 		520-v4.pl.decrypted = 520-v4.pl.decrypted
 		520.cpp.decrypted = 520.cpp.decrypted
 		520.pl.decrypted = 520.pl.decrypted
+		549.cpp.decrypted = 549.cpp.decrypted
+		549.pl.decrypted = 549.pl.decrypted
 	EndProjectSection
 EndProject
 Global
