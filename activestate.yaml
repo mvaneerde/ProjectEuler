@@ -1,0 +1,28 @@
+project: https://platform.activestate.com/mvaneerde/ProjectEuler?commitID=41ed2483-6dc4-49ab-bc93-57232c4b36f6
+events:
+- name: ACTIVATE
+  value: $scripts.activationMessage.path()
+  scope: []
+  if: ""
+scripts:
+- name: helloWorld
+  value: echo ${secrets.user.world}
+  language: batch
+  if: ""
+- name: activationMessage
+  value: |
+    print <<EOT;
+    You are now in an 'activated state', this will give you a virtual environment to work in that doesn't affect the rest of your system.
+
+    Your 'activated state' allows you to manage packages, scripts, secrets and more via the activestate.yaml file at the root of your project directory.
+
+    To manage packages use the `state packages` command. For more information about package management, use `state packages --help`. For more information about the State Tool use `state help`.
+
+    To access additional features of the ActiveState Platform and use a web-based interface for managing your project, you can visit https://platform.activestate.com/mvaneerde/ProjectEuler.
+
+    Edit your activestate.yaml to remove this message.
+    EOT
+  language: perl
+  if: ""
+owner: mvaneerde
+name: ProjectEuler
