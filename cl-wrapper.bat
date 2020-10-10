@@ -18,12 +18,7 @@ rem /TP means treat the files being compiled as C++
 rem rather than inferring the type from the extension
 rem
 rem /EHsc allows using things like std::vector
-if /i "%processor_architecture%"=="amd64" (
-	set cl_arch=x64
-) else (
-	set cl_arch=x86
-)
-call "%visual_cplusplus%\bin\Host%cl_arch%\%cl_arch%\cl.exe" ^
+call "%visual_cplusplus%\bin\Hostx86\x86\cl.exe" ^
 	/EHsc ^
 	/nologo ^
 	/TP ^
