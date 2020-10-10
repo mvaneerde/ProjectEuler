@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DE85FB9A-D36C-4781-97F2-76EC6924CF45}"
 EndProject
@@ -105,6 +105,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "100-199", "100-199", "{79FB
 		168.pl.decrypted = 168.pl.decrypted
 		169-v1.pl.decrypted = 169-v1.pl.decrypted
 		169.pl.decrypted = 169.pl.decrypted
+		170.cpp.decrypted = 170.cpp.decrypted
 		171.cpp.decrypted = 171.cpp.decrypted
 		171.pl.decrypted = 171.pl.decrypted
 		172.pl.decrypted = 172.pl.decrypted
@@ -441,5 +442,8 @@ Global
 		{FA9307BE-2143-4FD9-B50D-149AFF180113} = {DE85FB9A-D36C-4781-97F2-76EC6924CF45}
 		{75F2BAB8-8CF1-434C-9BA8-0307D07D9E3B} = {DE85FB9A-D36C-4781-97F2-76EC6924CF45}
 		{D190DD1E-1298-4AEB-B025-1F7CAD2A25EE} = {DE85FB9A-D36C-4781-97F2-76EC6924CF45}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {031CDC22-54EA-41AD-BE8C-CEA2883C1431}
 	EndGlobalSection
 EndGlobal
