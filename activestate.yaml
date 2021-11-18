@@ -1,4 +1,4 @@
-project: https://platform.activestate.com/mvaneerde/ProjectEuler?commitID=41ed2483-6dc4-49ab-bc93-57232c4b36f6
+project: https://platform.activestate.com/commit/cf052b82-a9c1-493b-8ea5-0cb96f9b9fb0
 events:
 - name: ACTIVATE
   value: $scripts.activationMessage.path()

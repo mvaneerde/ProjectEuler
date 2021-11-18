@@ -429,6 +429,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "500-599", "500-599", "{D190
 		549.pl.decrypted = 549.pl.decrypted
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "600-699", "600-699", "{692408CB-F498-425F-B950-D154385D614F}"
+	ProjectSection(SolutionItems) = preProject
+		684.ps1.decrypted = 684.ps1.decrypted
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -442,6 +447,7 @@ Global
 		{FA9307BE-2143-4FD9-B50D-149AFF180113} = {DE85FB9A-D36C-4781-97F2-76EC6924CF45}
 		{75F2BAB8-8CF1-434C-9BA8-0307D07D9E3B} = {DE85FB9A-D36C-4781-97F2-76EC6924CF45}
 		{D190DD1E-1298-4AEB-B025-1F7CAD2A25EE} = {DE85FB9A-D36C-4781-97F2-76EC6924CF45}
+		{692408CB-F498-425F-B950-D154385D614F} = {DE85FB9A-D36C-4781-97F2-76EC6924CF45}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {031CDC22-54EA-41AD-BE8C-CEA2883C1431}
