@@ -20,18 +20,14 @@ $salt = $bytes[8..15];
 $saltPretty = [System.BitConverter]::ToString($salt);
 Write-Host "Salt: ", $saltPretty;
 
-$md5 = [System.Security.Cryptography.MD5CryptoServiceProvider]::new();
-$passwordBytes = [System.Text.Encoding]::UTF8.GetBytes($password);
-
-$d1 = $md5.ComputeHash($passwordBytes + $salt);
-$d2 = $md5.ComputeHash($d1 + $passwordBytes + $salt);
-$d3 = $md5.ComputeHash($d2 + $passwordBytes + $salt);
-
-$key = $d1 + $d2;
+# Compute the key and the initialization vector
+# from the passphrase and the salt
+# in old deprecated OpenSSL fashion
+$params = Get-OpenSslMd5KeyAndIv -password $password -salt $salt;
+$key = $params.Key;
 $keyPretty = [System.BitConverter]::ToString($key);
 Write-Host "Key: ", $keyPretty;
 
-$iv = $d3;
+$iv = $params.Iv;
 $ivPretty = [System.BitConverter]::ToString($iv);
 Write-Host "IV: ", $ivPretty;
-
