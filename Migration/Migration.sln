@@ -6,13 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5535E551-E0BB-4293-9492-50E4453567EE}"
 	ProjectSection(SolutionItems) = preProject
 		decrypt-everything.ps1 = decrypt-everything.ps1
-		decrypt.pl = decrypt.pl
-		encrypt-file.bat = encrypt-file.bat
-		encrypt.pl = encrypt.pl
 		Migration.psm1 = Migration.psm1
-		test-file.bin = test-file.bin
-		test-file.txt.decrypted = test-file.txt.decrypted
-		test-file.txt.encrypted = test-file.txt.encrypted
 	EndProjectSection
 EndProject
 Global
