@@ -37,24 +37,28 @@ Function Get-ProtectedPath {
         [string]$filename
     )
 
-    If (!($filename.EndsWith(".decrypted"))) {
-        Throw "$filename does not end with .decrypted";
+    $encryptedFilename = ($filename -replace "\.decrypted\.([^\.]+)`$", ".`$1.encrypted");
+
+    If ($filename -eq $encryptedFilename) {
+        Throw "$filename does not match the spec for a decrypted file";
     }
 
-    Return $filename.Replace(".decrypted", ".encrypted");
+    Return $encryptedFilename;
 }
-Export-ModuleMember -Function "Get-UnprotectedPath";
+Export-ModuleMember -Function "Get-ProtectedPath";
 
 Function Get-UnprotectedPath {
     Param(
         [string]$filename
     )
 
-    If (!($filename.EndsWith(".encrypted"))) {
-        Throw "$filename does not end with .encrypted";
+    $decryptedFilename = ($filename -replace "\.([^\.]+)\.encrypted`$", ".decrypted.`$1");
+
+    If ($filename -eq $decryptedFilename) {
+        Throw "$filename does not match the spec for an encrypted file";
     }
 
-    Return $filename.Replace(".encrypted", ".decrypted");
+    Return $decryptedFilename;
 }
 Export-ModuleMember -Function "Get-UnprotectedPath";
 

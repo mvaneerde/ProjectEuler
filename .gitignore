@@ -1,5 +1,6 @@
 ## Intentionally never submit decrypted files or the decryption password
 *.decrypted
+*.decrypted.*
 .password
 
 ## Ignore Visual Studio temporary files, build results, and
