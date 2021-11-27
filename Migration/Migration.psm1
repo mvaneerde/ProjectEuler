@@ -32,6 +32,19 @@ Function Get-Password {
 }
 Export-ModuleMember -Function "Get-Password";
 
+Function Get-ProtectedPath {
+    Param(
+        [string]$filename
+    )
+
+    If (!($filename.EndsWith(".decrypted"))) {
+        Throw "$filename does not end with .decrypted";
+    }
+
+    Return $filename.Replace(".decrypted", ".encrypted");
+}
+Export-ModuleMember -Function "Get-UnprotectedPath";
+
 Function Get-UnprotectedPath {
     Param(
         [string]$filename
@@ -50,7 +63,46 @@ Function Protect-File {
         [string]$filename
     )
 
-    Write-Host "TODO: encrypt $filename";
+    $outputFilename = Get-ProtectedPath -filename $filename;
+
+    $outputBytes = [System.Text.Encoding]::UTF8.GetBytes("Salted__");
+
+    # generate a random eight-byte salt
+    $salt = [System.BitConverter]::GetBytes([int64]0);
+    For ($i = 0; $i -lt 8; $i++) {
+        $b = Get-Random -Maximum 256;
+        $salt[$i] = [byte]$b;
+    }
+
+    $outputBytes += $salt;
+
+    $password = Get-Password;
+
+    $params = Get-OpenSslMd5KeyAndIv -password $password -salt $salt;
+    $key = $params.Key;
+    $iv = $params.Iv;
+
+    $aes = [System.Security.Cryptography.Aes]::Create();
+    $aes.Key = $key;
+    $aes.IV = $iv;
+
+    $encryptor = $aes.CreateEncryptor($aes.Key, $aes.IV);
+    $encryptedMemory = [System.Io.MemoryStream]::new();
+    $cryptoStream = [System.Security.Cryptography.CryptoStream]::new(
+        $encryptedMemory,
+        $encryptor,
+        [System.Security.Cryptography.CryptoStreamMode]::Write);
+
+    $encryptedStream = [System.Io.StreamWriter]::new($cryptoStream);
+    $plaintext = Get-Content -Path $filename -Raw;
+    $encryptedStream.Write($plaintext);
+
+    $encryptedStream.Dispose();
+    $cryptoStream.Dispose();
+    $encryptedBytes = $encryptedMemory.ToArray();
+    $outputBytes += $encryptedBytes;
+
+    [System.Convert]::ToBase64String($outputBytes) | Out-File $outputFilename;
 }
 Export-ModuleMember -Function "Protect-File";
 
