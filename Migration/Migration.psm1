@@ -47,6 +47,31 @@ Function Get-ProtectedPath {
 }
 Export-ModuleMember -Function "Get-ProtectedPath";
 
+Function Get-Rfc2898Pbkdf2KeyAndIv {
+    Param(
+        [string]$password,
+        [byte[]]$salt,
+        [int]$iterations,
+        [string]$hash
+    )
+
+    # RFC 2898 specifies more secure password-based key derivation functions
+    # This uses PBKDF2
+    $pbkdf2 = [System.Security.Cryptography.Rfc2898DeriveBytes]::new(
+        $password,
+        $salt,
+        $iterations,
+        $hash);
+
+    $params = @{
+        Key = $pbkdf2.GetBytes(32); # 256 bits
+        Iv = $pbkdf2.GetBytes(16); # 128 bits
+    };
+
+    return $params;
+}
+Export-ModuleMember -Function "Get-Rfc2898Pbkdf2KeyAndIv";
+
 Function Get-UnprotectedPath {
     Param(
         [string]$filename
@@ -73,16 +98,17 @@ Function Protect-File {
 
     # generate a random eight-byte salt
     $salt = [System.BitConverter]::GetBytes([int64]0);
-    For ($i = 0; $i -lt 8; $i++) {
-        $b = Get-Random -Maximum 256;
-        $salt[$i] = [byte]$b;
-    }
+    [System.Security.Cryptography.RandomNumberGenerator]::Fill($salt);
 
     $outputBytes += $salt;
 
     $password = Get-Password;
 
-    $params = Get-OpenSslMd5KeyAndIv -password $password -salt $salt;
+    $params = Get-Rfc2898Pbkdf2KeyAndIv `
+        -password $password `
+        -salt $salt `
+        -iterations 10000 `
+        -hash "SHA256";
     $key = $params.Key;
     $iv = $params.Iv;
 
@@ -106,7 +132,10 @@ Function Protect-File {
     $encryptedBytes = $encryptedMemory.ToArray();
     $outputBytes += $encryptedBytes;
 
-    [System.Convert]::ToBase64String($outputBytes) | Out-File $outputFilename;
+    [System.Convert]::ToBase64String(
+        $outputBytes,
+        [System.Base64FormattingOptions]::InsertLineBreaks
+    ) | Out-File $outputFilename;
 }
 Export-ModuleMember -Function "Protect-File";
 
@@ -154,7 +183,11 @@ Function Unprotect-File {
     # from the passphrase and the salt
     # in old deprecated OpenSSL fashion
     $password = Get-Password;
-    $params = Get-OpenSslMd5KeyAndIv -password $password -salt $salt;
+    $params = Get-Rfc2898Pbkdf2KeyAndIv `
+        -password $password `
+        -salt $salt `
+        -iterations 10000 `
+        -hash "SHA256";
     $key = $params.Key;
     $iv = $params.Iv;
 
