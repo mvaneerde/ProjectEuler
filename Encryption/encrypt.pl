@@ -12,7 +12,11 @@ EOU
 my ($key) = @ARGV;
 my $line_length = 57; # Base64 encoding fills this out to 76
 
-my $cipher = new Crypt::CBC( -key => $key, -cipher => "Crypt::Rijndael" );
+my $cipher = new Crypt::CBC(
+	-key => $key,
+	-cipher => "Crypt::Rijndael",
+	-pbkdf => "pbkdf2"
+);
 
 $cipher->start("encrypting");
 my $binary = undef;
