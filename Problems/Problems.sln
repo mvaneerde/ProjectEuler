@@ -430,6 +430,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "500-599", "500-599", "{D190
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "600-699", "600-699", "{692408CB-F498-425F-B950-D154385D614F}"
+	ProjectSection(SolutionItems) = preProject
+		684.decrypted.ps1 = 684.decrypted.ps1
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
