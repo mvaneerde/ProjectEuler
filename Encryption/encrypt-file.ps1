@@ -1,4 +1,4 @@
 Param([Parameter(Mandatory)]$filename);
 
-Import-Module ".\Migration.psm1";
+Import-Module ".\Encryption.psm1";
 Protect-File -filename $filename;

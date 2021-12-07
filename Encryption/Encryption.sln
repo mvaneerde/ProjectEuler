@@ -1,21 +1,23 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31911.196
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7FC0259D-1F0C-4825-9D63-934C84999F80}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5535E551-E0BB-4293-9492-50E4453567EE}"
 	ProjectSection(SolutionItems) = preProject
-		..\.password = ..\.password
-		..\decrypt-problems.bat = ..\decrypt-problems.bat
-		decrypt.pl = decrypt.pl
-		encrypt-file.bat = encrypt-file.bat
-		..\encrypt-problems.bat = ..\encrypt-problems.bat
-		encrypt.pl = encrypt.pl
-		install-perl-modules.bat = install-perl-modules.bat
+		decrypt-everything.ps1 = decrypt-everything.ps1
+		encrypt-everything.ps1 = encrypt-everything.ps1
+		encrypt-file.ps1 = encrypt-file.ps1
+		Encryption.psm1 = Encryption.psm1
+		test-file.decrypted.txt = test-file.decrypted.txt
+		test-file.txt.encrypted = test-file.txt.encrypted
 	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8A20D2EF-6830-4676-BB3A-F77FEA8B0B93}
 	EndGlobalSection
 EndGlobal

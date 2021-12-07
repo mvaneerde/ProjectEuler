@@ -1,4 +1,4 @@
-Import-Module ".\Migration.psm1";
+Import-Module ".\Encryption.psm1";
 
 $decryptedFiles = Get-ChildItem -Path "..\*.decrypted.*" -Recurse;
 $decryptedFiles | ForEach-Object {
