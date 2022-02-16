@@ -22,3 +22,22 @@ Function Get-FibonacciNumbers {
     Return $f;
 }
 Export-ModuleMember -Function "Get-FibonacciNumbers";
+
+Function Get-NChooseR {
+    Param([int]$n, [int]$r)
+
+    If ($r -gt ($n - $r)) {
+        $r = $n - $r;
+    }
+
+    $t = 1;
+
+    For ([int]$i = 1; $i -le $r; $i++) {
+        $t *= $n;
+        $n--;
+        $t /= $i;
+    }
+
+    Return $t;
+}
+Export-ModuleMember -Function "Get-NChooseR";
