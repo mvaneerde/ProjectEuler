@@ -5,9 +5,8 @@ VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E9520D78-B06F-4EDB-904C-3026BF2F56C7}"
 	ProjectSection(SolutionItems) = preProject
-		factor.pl = factor.pl
 		factor.ps1 = factor.ps1
-		ncr.pl = ncr.pl
+		factorial.ps1 = factorial.ps1
 		ncr.ps1 = ncr.ps1
 	EndProjectSection
 EndProject

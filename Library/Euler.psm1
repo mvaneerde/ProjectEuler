@@ -1,7 +1,35 @@
+Function Get-Factorial {
+    Param([int]$n);
+
+    $f = [int64]1;
+    While ($n -gt 0) {
+        $f *= $n--;
+    }
+
+    Return $f;
+}
+Export-ModuleMember -Function "Get-Factorial";
+
+Function Get-Factors {
+    Param([int]$n);
+
+    $fs = @{};
+
+    For ([int]$p = 2; $n -gt 1; $p++) {
+        While (($n % $p) -eq 0) {
+            $n /= $p;
+            $fs[$p] += 1;
+        }
+    }
+
+    Return $fs;
+}
+Export-ModuleMember -Function "Get-Factors";
+
 # with f_0 = 0, f_1 = 1, and f_i = f_(i - 2) + f_i
 # calculate and return all Fibonacci numbers up to f_n
 Function Get-FibonacciNumbers {
-    Param([int]$n)
+    Param([int]$n);
 
     If ($n -lt 0) {
         Throw "n needs to be >= 0";
@@ -30,7 +58,7 @@ Function Get-NChooseR {
         $r = $n - $r;
     }
 
-    $t = 1;
+    $t = [int64]1;
 
     For ([int]$i = 1; $i -le $r; $i++) {
         $t *= $n;

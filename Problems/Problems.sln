@@ -109,6 +109,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "100-199", "100-199", "{79FB
 		171.decrypted.cpp = 171.decrypted.cpp
 		171.decrypted.pl = 171.decrypted.pl
 		172.decrypted.pl = 172.decrypted.pl
+		172.decrypted.ps1 = 172.decrypted.ps1
 		173.decrypted.pl = 173.decrypted.pl
 		174.decrypted.pl = 174.decrypted.pl
 		178.decrypted.pl = 178.decrypted.pl

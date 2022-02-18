@@ -1,15 +1,8 @@
 Param([int]$n);
 
-$originalN = $n;
+Import-Module "..\Library\Euler.psm1";
 
-$factorsTable = @{};
-
-For ([int]$p = 2; $n -gt 1; $p++) {
-    While (($n % $p) -eq 0) {
-        $n /= $p;
-        $factorsTable[$p] += 1;
-    }
-}
+$factorsTable = Get-Factors -n $n;
 
 $factorsList = @();
 
@@ -26,4 +19,4 @@ ForEach-Object {
     $factorsList += $factorString;
 }
 
-Write-Host $originalN, "=", $factorsList;
+Write-Host $n, "=", $factorsList;
