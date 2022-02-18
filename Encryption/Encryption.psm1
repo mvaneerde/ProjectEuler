@@ -69,8 +69,8 @@ Function Protect-File {
     $outputBytes = [System.Text.Encoding]::UTF8.GetBytes("Salted__");
 
     # generate a random eight-byte salt
-    $salt = [System.BitConverter]::GetBytes([int64]0);
-    [System.Security.Cryptography.RandomNumberGenerator]::Fill($salt);
+    $salt = [byte[]](1 .. 8);
+    [System.Security.Cryptography.RandomNumberGenerator]::Create().GetBytes($salt);
 
     $outputBytes += $salt;
 
