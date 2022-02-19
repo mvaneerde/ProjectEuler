@@ -1,5 +1,5 @@
 Function Get-Factorial {
-    Param([int]$n);
+    Param([Parameter(Mandatory)][int]$n);
 
     $f = [int64]1;
     While ($n -gt 0) {
@@ -11,7 +11,7 @@ Function Get-Factorial {
 Export-ModuleMember -Function "Get-Factorial";
 
 Function Get-Factors {
-    Param([int]$n);
+    Param([Parameter(Mandatory)][int]$n);
 
     $fs = @{};
 
@@ -29,7 +29,7 @@ Export-ModuleMember -Function "Get-Factors";
 # with f_0 = 0, f_1 = 1, and f_i = f_(i - 2) + f_i
 # calculate and return all Fibonacci numbers up to f_n
 Function Get-FibonacciNumbers {
-    Param([int]$n);
+    Param([Parameter(Mandatory)][int]$n);
 
     If ($n -lt 0) {
         Throw "n needs to be >= 0";
@@ -52,7 +52,10 @@ Function Get-FibonacciNumbers {
 Export-ModuleMember -Function "Get-FibonacciNumbers";
 
 Function Get-NChooseR {
-    Param([int]$n, [int]$r)
+    Param(
+        [Parameter(Mandatory)][int]$n,
+        [Parameter(Mandatory)][int]$r
+    )
 
     If ($r -gt ($n - $r)) {
         $r = $n - $r;
@@ -69,3 +72,27 @@ Function Get-NChooseR {
     Return $t;
 }
 Export-ModuleMember -Function "Get-NChooseR";
+
+Function Get-Primes {
+    Param([Parameter(Mandatory)][int]$max);
+
+    $primes = @();
+
+    # we'll use a bit array, initially false
+    # mark as true for numbers which are known composit
+    $composite = [System.Collections.BitArray]::new($max + 1);
+    For ([int]$p = 2; $p -le $max; $p++) {
+        If (!$composite[$p]) {
+            # we found a prime!
+            $primes += $p;
+
+            # mark off known composites from p^2 up to max
+            For ([int]$kp = $p * $p; $kp -le $max; $kp += $p) {
+                $composite[$kp] = $true;
+            }
+        }
+    }
+
+    Return $primes;
+}
+Export-ModuleMember -Function "Get-Primes";
