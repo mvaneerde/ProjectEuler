@@ -1,4 +1,7 @@
-Param([int]$n, [int]$r);
+Param(
+    [Parameter(Mandatory)][int]$n,
+    [Parameter(Mandatory)][int]$r
+);
 
 Import-Module "..\Library\Euler.psm1";
 

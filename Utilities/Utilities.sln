@@ -7,6 +7,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		factor.ps1 = factor.ps1
 		factorial.ps1 = factorial.ps1
+		isqrt.ps1 = isqrt.ps1
+		modpow.ps1 = modpow.ps1
 		ncr.ps1 = ncr.ps1
 		primes.ps1 = primes.ps1
 	EndProjectSection

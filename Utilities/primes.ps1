@@ -1,4 +1,4 @@
-Param([int]$max);
+Param([Parameter(Mandatory)][int]$max);
 
 Import-Module "..\Library\Euler.psm1";
 
