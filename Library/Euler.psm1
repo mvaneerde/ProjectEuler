@@ -53,7 +53,7 @@ Export-ModuleMember -Function "Get-FibonacciNumbers";
 
 # given n, returns the largest s satisfying s^2 <= n
 Function Get-IntegerSquareRoot {
-    Param([Parameter(Mandatory)][int]$n);
+    Param([Parameter(Mandatory)][int64]$n);
 
     If ($n -lt 0) {
         Throw "n needs to be >= 0";
@@ -61,10 +61,10 @@ Function Get-IntegerSquareRoot {
 
     # set up a lower and an upper bound
     # invariant: low^2 <= n < high^2
-    $low = [int]0;
+    $low = [int64]0;
 
     # to do the upper bound, double until we get too high
-    $high = [int]1;
+    $high = [int64]1;
     While ($high * $high -le $n) {
         $high *= 2;
     }
