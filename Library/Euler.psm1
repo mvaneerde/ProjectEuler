@@ -91,6 +91,18 @@ Function Get-IntegerSquareRoot {
 }
 Export-ModuleMember -Function "Get-IntegerSquareRoot";
 
+# given n and m, returns n^-1 mod m
+Function Get-ModInv {
+    Param(
+        [Parameter(Mandatory)][int64]$n,
+        [Parameter(Mandatory)][int64]$modulus
+    );
+
+    Return Get-ModPow -base $n -power ($modulus - 2) -modulus $modulus;
+
+}
+Export-ModuleMember -Function "Get-ModInv";
+
 # given b, p, and m, returns b^p mod m
 Function Get-ModPow {
     Param(
@@ -166,3 +178,31 @@ Function Get-Primes {
     Return $primes;
 }
 Export-ModuleMember -Function "Get-Primes";
+
+# Return an array of bools
+# The entry at a given index is "true" if there is an entry below that divides the index
+Function Get-PrimeSieve {
+    [OutputType([bool[]])]
+    Param([Parameter(Mandatory)][int]$max);
+
+    # we want a ceiling, not a floor
+    $sqrt_max = (Get-IntegerSquareRoot -n $max) + 1;
+
+    # we'll use a bit array, initially false
+    # mark as true for numbers which are composite or otherwise non-prime
+    $sieve = [bool[]]::new($max + 1);
+    For ([int]$p = 2; $p -le $max; $p++) {
+        If (!$sieve[$p]) {
+            # we found a prime!
+            If ($p -le $sqrt_max) {
+                # mark off known composites from p^2 up to max
+                For ([int]$kp = $p * $p; $kp -le $max; $kp += $p) {
+                    $sieve[$kp] = $true;
+                }
+            }
+        }
+    }
+
+    Return $sieve;
+}
+Export-ModuleMember -Function "Get-PrimeSieve";
